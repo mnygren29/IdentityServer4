@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4.API", "IdentityServer4.API\IdentityServer4.API.csproj", "{C7CEE2D5-0983-4398-BA02-34B5DCA170F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer4.IdentitySvr", "IdentityServer4.IdentitySvr\IdentityServer4.IdentitySvr.csproj", "{B36EB6DA-5054-4D5C-95DE-500F91A97730}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7CEE2D5-0983-4398-BA02-34B5DCA170F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7CEE2D5-0983-4398-BA02-34B5DCA170F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7CEE2D5-0983-4398-BA02-34B5DCA170F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7CEE2D5-0983-4398-BA02-34B5DCA170F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36EB6DA-5054-4D5C-95DE-500F91A97730}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36EB6DA-5054-4D5C-95DE-500F91A97730}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36EB6DA-5054-4D5C-95DE-500F91A97730}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36EB6DA-5054-4D5C-95DE-500F91A97730}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F66B3AF9-ED92-4DCC-84B8-FCA58E15BA84}
+	EndGlobalSection
+EndGlobal
