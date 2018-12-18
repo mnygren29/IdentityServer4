@@ -1,0 +1,191 @@
+{
+	"info": {
+		"_postman_id": "8538461a-3fbf-4c35-b0c4-14ffd3c8dc6c",
+		"name": "LoanApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:60565/api/Borrowers",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"OutageNumber\": 1,\n\t\"OutageLocation\": \"Disneyland\",\n\t\"CustomersImpacted\":1,\n\t\"OutageStartTime\":\"02/03/2018\",\n\t\"OutageType\":2,\n\t\"OutageReasong\":\"Power circuite breaker\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:60565/api/Borrowers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60565",
+					"path": [
+						"api",
+						"Borrowers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:60565/api/Borrowers Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"OutageNumber\": 1,\n\t\"OutageLocation\": \"Disneyland\",\n\t\"CustomersImpacted\":1,\n\t\"OutageStartTime\":\"02/03/2018\",\n\t\"OutageType\":2,\n\t\"OutageReasong\":\"Power circuite breaker\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:60565/api/Borrowers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60565",
+					"path": [
+						"api",
+						"Borrowers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:60565/api/Borrowers Copy Copy",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "secret",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "client",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "IdentityServer4IdentitySvr",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:60565/api/Borrowers Copy Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"OutageNumber\": 1,\n\t\"OutageLocation\": \"Disneyland\",\n\t\"CustomersImpacted\":1,\n\t\"OutageStartTime\":\"02/03/2018\",\n\t\"OutageType\":2,\n\t\"OutageReasong\":\"Power circuite breaker\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:60565/api/Borrowers/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60565",
+					"path": [
+						"api",
+						"Borrowers",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:60565/api/Borrowers Copy Copy",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\":1,\n\t\"BorrowerFirstName\":\"Matt\",\n\t\"BorrowerLastName\":\"Nygren\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:60565/api/Borrowers/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "60565",
+					"path": [
+						"api",
+						"Borrowers",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
