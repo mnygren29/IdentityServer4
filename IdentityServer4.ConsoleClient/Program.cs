@@ -14,10 +14,36 @@ namespace IdentityServer4.ConsoleClient
         //1. First run the identity server projec
         //2. Next, run the api
         //3. Lastly, run the console app
+        //4. www.jwt.io.com  can go to to test token returned
         public static void Main(string[] args) => MainAsync().GetAwaiter().GetResult();
 
         private static async Task MainAsync()
         {
+            //RESOURCE OWNER FLOW
+            var discoRO = await DiscoveryClient.GetAsync("http://localhost:5000");
+
+            if (discoRO.IsError)
+            {
+                Console.WriteLine(discoRO.Error);
+                return;
+            }
+
+            //get a bearer token using resource owner flow
+            var tokenClientRO = new TokenClient(discoRO.TokenEndpoint, "ro.client", "secret");
+            var tokenResponseRO = await tokenClientRO.RequestResourceOwnerPasswordAsync
+                ("jblack", "skywalker", "IdentityServer4IdentitySvr");
+
+            if (tokenResponseRO.IsError)
+            {
+                Console.WriteLine(tokenResponseRO.IsError);
+                return;
+            }
+
+            Console.WriteLine(tokenResponseRO.Json);
+            Console.WriteLine("/n/n");
+
+            /////////////////////////////////////////////////////////////////////////////////////////
+            //CLIENT CREDENTIAL FLOW
             //discover all the endpoints using metadata of identity server
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
 
@@ -27,7 +53,7 @@ namespace IdentityServer4.ConsoleClient
                 return;
             }
 
-            //get a bearer token
+            //get a bearer token using client credential flow
             var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
             var tokenResponse = await tokenClient.RequestClientCredentialsAsync("IdentityServer4IdentitySvr");
 

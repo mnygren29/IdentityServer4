@@ -15,12 +15,20 @@ namespace IdentityServer4.IdentitySvr
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            try
+            {
 
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryApiResources(Config.GetAllApiResources())
-                .AddInMemoryClients(Config.GetClients());
+                services.AddIdentityServer()
+                    .AddDeveloperSigningCredential()
+                    .AddInMemoryApiResources(Config.GetAllApiResources())
+                    .AddInMemoryClients(Config.GetClients())
+                   //dependency injection for user resource owner flow
+                   .AddTestUsers(Config.GetUsers());
+            }
+            catch(Exception ex)
+            {
 
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
