@@ -10,6 +10,17 @@ namespace IdentityServer4.IdentitySvr
     public class Config
     {
 
+        //related to mvc implicit, we need to create a new scope to be used for open identity scope
+        public static IEnumerable<IdentityResource> GetIdentityResources()
+        {
+            return new List<IdentityResource>
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Profile()
+
+            };
+        }
+
         //add test user for creating a user base flow instead of just clientcredentials
         public static List<TestUser> GetUsers()
         {
@@ -89,6 +100,23 @@ namespace IdentityServer4.IdentitySvr
                         new Secret("secret".Sha256())
                     },
                     AllowedScopes={"IdentityServer4IdentitySvr"}
+                },
+        new Client
+                {
+                    ClientId="mvc",
+                    ClientName="mVC Client",
+                    AllowedGrantTypes=GrantTypes.Implicit,
+                    //remember in implicity flow, user is redirected from client to identity server
+                    RedirectUris={"http://localhost:5003/signin-oidc" },
+                     PostLogoutRedirectUris={"http://localhost:5003/signout-callback-oidc" },
+
+
+                   
+                    AllowedScopes=new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
         }

@@ -17,9 +17,13 @@ namespace IdentityServer4.IdentitySvr
         {
             try
             {
+                //allows us to use ui assest related to identityserver templates
+                services.AddMvc();
 
                 services.AddIdentityServer()
                     .AddDeveloperSigningCredential()
+                    //will add resources related to mvc
+                    .AddInMemoryIdentityResources(Config.GetIdentityResources())
                     .AddInMemoryApiResources(Config.GetAllApiResources())
                     .AddInMemoryClients(Config.GetClients())
                    //dependency injection for user resource owner flow
@@ -40,6 +44,10 @@ namespace IdentityServer4.IdentitySvr
             }
 
             app.UseIdentityServer();
+
+            //allows us to use ui assest related to identityserver templates
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
 
             //app.Run(async (context) =>
             //{
