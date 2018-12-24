@@ -1,4 +1,5 @@
 This is a base project of mine using IdentityServer4. It uses .net core and the following Identity Server Grant Types:
+
 -Client Credentials - used in server to server or machine to machine, intranet internal. No user resource involved.
 -Implicit\ImplicitAndClientCredentials
   client tells browser that the user is on.client says i want to redirect the user/browser to the identity svr. once redirectd. id svr asks
